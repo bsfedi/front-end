@@ -1,0 +1,45 @@
+.myDiv {
+    padding-bottom: 57.5%;
+    background-image:url("E:/Users/fadis/Desktop/Stage PFE/Frontend/src/assets/download.jpg") ;
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-size: cover;
+
+   
+}  #center{
+  text-align: center;
+  }
+  #erreur{
+    color: red;
+  }
+  .myDiv1{
+    padding-top: 70px;
+    padding-bottom: 70px;
+    padding-right: 70px;
+    padding-left: 70px;
+    margin: 30px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.6;
+    width: 500px;
+  }
+  .myDiv2{
+    margin-top: -40%;
+    padding-top: 40%;
+    margin-left:27%;
+    margin-bottom:40%;
+    width: 800px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.6;
+  
+  }
+  header {
+    height: 80px;
+    background-color: gold;
+  }
+  .hero {
+    padding-bottom: 37.5%; /* = ( 600 / 1600 ) x 100 */
+    background-image: url( 'http://placehold.it/1600x600/A00' );
+    background-size: cover;
+  }

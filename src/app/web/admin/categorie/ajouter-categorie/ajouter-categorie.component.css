@@ -1,0 +1,21 @@
+#btncenter{
+    margin-left: 255px;
+
+  }
+  #description{
+
+    height: 100px;
+    
+  }
+  #erreur{
+
+    color: red;
+  }
+  #desc{
+    margin-left: 10px;
+  }
+  #nav-link{
+    color:white ;
+    size: 120px;
+    }
+    

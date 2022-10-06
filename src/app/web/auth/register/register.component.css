@@ -1,0 +1,39 @@
+.myDiv {
+
+    padding-top: 45px;
+    padding-left: 600px;
+
+    padding-bottom: 200px;
+    background-image:url("E:/Users/fadis/Desktop/Stage PFE/Frontend/src/assets/download.jpg") ;
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-size: cover;
+
+   
+}
+  .myDiv1{
+    padding-top: 70px;
+    padding-bottom: 70px;
+    padding-right: 70px;
+    padding-left: 70px;
+    margin: 30px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.6;
+    width: 500px;
+  }
+  #center{
+    text-align: center;
+    }
+    #erreur{
+      color: red;
+    }
+  
+    #center{
+      text-align: center;
+      }
+.sign-up{
+    text-align: center;
+    color: black;
+    size: 10px;
+}

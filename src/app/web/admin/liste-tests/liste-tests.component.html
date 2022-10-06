@@ -1,0 +1,102 @@
+<html >
+  <head>
+    <meta charset="utf-8">
+    <title>Gestion des Produits</title>
+  </head>
+<body>
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:1px;">
+    <a href="#home" class="w3-bar-item w3-button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="26" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
+  <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
+</svg></a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+    <a  class="w3-bar-item w3-button" routerLink="/admin/dashboard">Dashboard</a>
+      <a  class="w3-bar-item w3-button" routerLink="/dashboard/admin">Liste des Clients</a>
+      <a class="w3-bar-item w3-button" routerLink="/dashboard/admin/liste-categorie">Liste des categories</a>
+      <a class="w3-bar-item w3-button" routerLink="/dashboard/admin/list-test" >Liste des Tests</a>
+      <a href class="w3-bar-item w3-button" (click)="Deconnexion()">Deconnexion</a>   
+    </div>
+  </div>  
+</div>
+ <br> <br> <br> <br> <br> <br> 
+  <br>
+  
+  <div class="container-xx">
+    <div id="wrapper" style="margin:0px 100px 0px 100px;">
+        <div id="content-wrapper" class="d-flex flex-column">
+
+
+            <div id="content">
+
+
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-14">
+                        <div class="card-header py-3">
+                            <h2 class="m-0 font-weight-bold text-primary">Liste des Tests </h2>
+                        </div>
+                        <div class="card-body">
+                         <a  routerLink="/dashboard/admin/ajouter-test"> <button class="btn btn-primary"> <b> Ajouter Test </b> </button> </a> <br> <br>
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Titre</th> 
+                                            <th>Description</th>   
+                                            <th>Dureé</th>  
+                                            <th>Niveau</th>  
+                                            <th>slug</th> 
+                                            <th>etat</th> 
+                                            <th>Categorie </th>
+                                            <th> Question</th> 
+                                            <th> Score</th> 
+                                             <th> Version</th> 
+                                             <th> </th>
+
+                                        </tr>
+                                    </thead>
+                                      <tbody   *ngFor="let test of Tests;let i=index" >
+                                          <tr class="td">
+                                            <td> {{i+1}}</td>
+                                            <td>{{test.titre}}</td>
+                                            <td>{{test.description}}</td>
+                                            <td width="10%">{{test.dure}} Minuets</td>
+                                            <td>{{test.Niveau}}</td>
+                                            <td>{{test.slug}}</td>
+                                            <td>{{test.etat}}</td>
+                                            <td>{{test.categorie_label}}</td>
+                                            <td>{{test.questions_count}}</td>
+                                            <td>{{test.score_max}}</td>
+                                            <td>{{test.version}}</td>
+                                            <td width="10%"> {{test.date}}</td>
+                                            <td> <a routerLink="/dashboard/admin/test-details/{{ test.slug }}">  <b> <img src="assets/details.png" width="30"></b> </a></td>
+                                            <td>  <a routerLink="/dashboard/admin/modifier-test/{{ test.id }}"> <b >   <img src="assets/Modifier.png" width="40" style="margin-top:-5px"> </b> </a></td>
+                                            <td> <a routerLink="/dashboard/admin/ajouter-question/{{ test.id }}"> <img src="assets/Ajouter.png" width="30"> </a></td>
+                                          </tr>
+                                      </tbody>
+                                        
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- End of Main Content -->
+        </div>
+        <!-- End of Content Wrapper -->
+    </div>
+
+  </div>
+  
+</body>
+</html>

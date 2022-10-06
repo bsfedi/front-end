@@ -1,0 +1,72 @@
+<div  class="myDiv">
+  <div  class="myDiv1">
+    <div class="sign-up"> <h4> S'inscrire avec </h4> <br>
+        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="45" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+          <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="45" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16" (click)="signInWithGoogle()">
+          <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0  1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0  3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg"  width="80" height="45" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+          <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+        </svg>
+    </div> <br>
+    <div class="sign-up"> - OU - </div> <br>
+        <div class="alert alert-success" *ngIf="isSuccessful"> Votre inscription est réussie! merci de valider votre email   </div>
+        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">  Signup failed!<br />{{ errorMessage }}  </div>
+    <form  name="form"  (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"  novalidate >
+                                                            <!-- ******Input Nom******-->
+      <div class="form-group">
+          <label for="username"> <b> Nom : </b></label>
+          <input type="text" class="form-control" name="nom" [(ngModel)]="form.nom" required  minlength="3" maxlength="20" #nom="ngModel" />    
+        <div id="erreur" *ngIf="nom.errors && f.submitted">
+          <div *ngIf="nom.errors.required">Nom est obligatoire</div>
+          <div *ngIf="nom.errors.minlength"> nom doit comporter au moins 3 caractères </div>
+          <div *ngIf="nom.errors.maxlength"> Le nom  doit comporter au maximum 20 caractères</div>
+        </div>
+      </div>
+                                                            <!-- ******Input Prenom******-->
+      <div class="form-group">
+          <label for="prenom"> <b> Prenom : </b></label>
+          <input type="text" class="form-control" name="prenom" [(ngModel)]="form.prenom" required  minlength="3" maxlength="20" #prenom="ngModel" />        
+        <div  id="erreur" *ngIf="prenom.errors && f.submitted">
+          <div *ngIf="prenom.errors.required">Prenom est obligatoire</div>
+          <div *ngIf="prenom.errors.minlength"> Prenom doit comporter au moins 3 caractères </div>
+          <div *ngIf="prenom.errors.maxlength"> Le Prenom  doit comporter au maximum 20 caractères</div>
+        </div>         
+      </div>
+                                                            <!-- ******Input Nom d'utilisateur******-->
+      <div class="form-group">
+        <label for="nom_utilisateur"> <b>Nom d'utilisateur </b></label>
+        <input type="text" class="form-control" name="nom_utilisateur" [(ngModel)]="form.nom_utilisateur" minlength="3" maxlength="20" required #nom_utilisateur="ngModel" />
+        <div id="erreur"*ngIf="nom.errors && f.submitted">
+          <div *ngIf="nom_utilisateur.errors.required">Nom d'utilisateur est obligatoire</div>
+          <div *ngIf="nom_utilisateur.errors.minlength"> Nom d'utilisateur doit comporter au moins 3 caractères </div>
+          <div *ngIf="nom_utilisateur.errors.maxlength"> Le Nom d'utilisateur doit comporter au maximum 20 caractères</div>
+        </div>
+      </div>
+                                                                  <!-- ******Input Email******-->
+      <div class="form-group">
+            <label for="email"><b> Adresse e-mail : </b></label>
+            <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email #email="ngModel" />
+              <div id="erreur" *ngIf="email.errors && f.submitted">
+                <div *ngIf="email.errors.required">Email est obligatoire</div>
+                <div *ngIf="email.errors.email">verifier votre adresse e-email </div>
+              </div>
+      </div>
+                                                                  <!-- ******Input Mot de passe******-->
+      <div class="form-group">
+          <label for="password"><b> Mot de passe </b></label>
+          <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6" #password="ngModel" />
+            <div id="erreur" *ngIf="password.errors && f.submitted">
+              <div *ngIf="password.errors.required">Mot de passe est obligatoire</div>
+              <div *ngIf="password.errors.minlength"> Password must be at least 6 characters </div>
+            </div>
+      </div>
+      <br>
+      <div class="form-group" id="center">  <button class="btn btn-primary btn-block">s'inscrire</button> </div>
+         <br>  <div id="center" > <a routerLink="/auth/login"> Vous avez déjà un compte?</a> </div>
+
+    </form>
+  </div>
+</div>

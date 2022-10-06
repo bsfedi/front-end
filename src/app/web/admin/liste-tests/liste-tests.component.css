@@ -1,0 +1,17 @@
+#btnajout{
+    margin-left: 1150px;
+    background-color:dodgerblue;
+    color: floralwhite;
+    size: 10px;
+
+}
+.table{
+    text-align: center;
+}
+.td{
+    font-weight: bold;
+}
+#nav-link{
+    color:white ;
+    size: 120px;
+    }

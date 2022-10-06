@@ -1,0 +1,19 @@
+<div class="question-container" >
+    {{question.label}} </div>
+    <hr>
+    <div>
+     <div *ngFor="let reponse of question['reponse_set']; let i = index">
+     <!--<div class="index">   {{i+1}}  </div> -->
+     <!-- 
+        [reponse] : input 
+        [index] : input 
+        [selectedAnswer] : input 
+        (selectAnswer) : output -> envoi l'id de reponse selected
+        lorsque en clique sur reponse  la methedo isSelected() est appelé et 
+        selectedAnswer recoit reponse.id;
+         , getidreponse() renvoi l'id de reponse
+          -->
+     <div class="reponse"> <app-reponse [reponse]="reponse" [index]="i" (selectAnswer)="callParent($event)" [selectedAnswer]="selectedAnswer" ></app-reponse>
+        </div>  
+    </div>
+</div>                                  

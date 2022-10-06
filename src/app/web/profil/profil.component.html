@@ -1,0 +1,37 @@
+
+
+
+
+ <div *ngIf="currentUser" class="edit-form" id="mdpcenter">
+
+          <form> 
+            <div class="alert alert-success" *ngIf="isSuccessful">{{ message }}</div><br> <br>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-4 col-form-label">Prenom : </label>
+              <div class="col-sm-4">
+                <input  type="text"  class="form-control" name="prenom"  [(ngModel)]="currentUser.user.prenom">
+              </div>
+            </div><br>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-4 col-form-label">Nom :</label>
+              <div class="col-sm-4">
+                <input  type="text"  class="form-control" name="nom"  [(ngModel)]="currentUser.user.nom" >
+              </div>
+            </div><br>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-4 col-form-label">Nom d'utilisateur :</label>
+              <div class="col-sm-4">
+                <input type="text"  class="form-control"  [(ngModel)]="currentUser.user.nom_utilisateur" name="nom_utilisateur" readonly >
+              </div>  
+            </div> <br>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-4 col-form-label">Email :</label>
+              <div class="col-sm-4">
+                <input  type="text"  class="form-control" name="email" width="120" [(ngModel)]="currentUser.user.email" >
+              </div>
+            </div><br>
+            <button type="submit" class="btn btn-primary" id="btncenter" (click)="modifierClient()">Enregistrer</button>
+          </form>
+        </div>  
+
+

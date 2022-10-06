@@ -1,0 +1,86 @@
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top" >
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+    <a href="#home" class="w3-bar-item w3-button">    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="26" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
+  <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
+</svg></a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+    <div *ngIf="currentUser.user">
+
+          <a routerLink="/dashboard" class="w3-bar-item w3-button"> Dashboard</a>
+          <a routerLink="/tests" class="w3-bar-item w3-button">Tests</a>
+          <a  href class="w3-bar-item w3-button" (click)="Deconnexion()">Deconnexion</a> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                    </svg> 
+
+    </div>
+    <div *ngIf="!currentUser.user">
+      <a href="#a" class="w3-bar-item w3-button">Tests</a>
+      <a href="#about" class="w3-bar-item w3-button" routerLink='/auth/register'>S'inscrire</a>
+      <a href="#menu" class="w3-bar-item w3-button" routerLink='/auth/login'><i class="fa fa-sign-in" aria-hidden="true"></i>Connexion</a>
+    </div>
+    </div>
+  </div>
+</div>
+<br><br> <br> <br>
+
+ 
+<!-- Page content -->
+<div class="w3-content" style="max-width:1200px" >
+<!-- Example single danger button -->
+
+  <!-- About Section -->
+  <div class="w3-row w3-padding-64" id="about">
+
+    <div class="w3-col m6 "><br> <br> <br> <br>
+      <h1   style="letter-spacing:1px;font-size:50px">La plate-forme de test de <br><br> programmation</h1><br>  <br>
+     <b>  <p class="w3-large ">Testez vos compétences en programmation dans de nombreux langages de programmation</p>
+     </b>
+     <button type="button" style="margin:100px 100px 0px 150px;width:230px;height:70px;font-size:18px" class="btn btn-warning"><i> <b>Testez vos compétences </b></i> <b>
+     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+</svg>
+</b></button>
+     </div>
+        <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="/assets/1.jpg" class="w3-image" alt="Table Setting" width="700" height="750">
+    </div>
+</div>
+  </div>
+  <h1   id="a" class="w3-center" style="font-size:35px">
+  <b> Nos tests </b></h1> <br>
+  <div  class="w3-row-padding" style="margin-left:200px;width:1800px" >
+  
+    <div class="w3-col l3 m6 w3-margin-bottom"  style="margin-left:30px" *ngFor="let test of Tests;">
+     <div class="card shadow mb-5" *ngIf="!test.etat"> 
+
+     <div class="w3-display-container">
+        <div class="w3-display-topleft w3-blue w3-padding" style="font-size: 25px;">{{test.titre}}</div>
+
+            <div class="dure-container" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
+                <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
+                </svg><br> <b> <hr> </b> {{test.dure}} Minutes
+            </div>
+            <div class="quest-container" >
+                               <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-question-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"/>
+                </svg> <br> <b> <hr> </b> {{test.questions_count}} Questions 
+            </div>           
+          <div class="description-container" > {{test.description}} </div>
+
+            <div style="margin:0px 0px 0px 10px"> <b> Niveau :{{test.Niveau}}  </b></div>
+
+            <button style="margin:0px 0px 8px 300px" (click)="passertest()"  class="btn btn-outline-primary">Passer le test</button>
+
+      </div>
+    </div></div>
+  </div>
+
+</body>
+ 

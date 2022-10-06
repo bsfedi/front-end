@@ -1,0 +1,16 @@
+.table{
+    text-align: center;
+}
+#checkbox
+{
+    font-size: large;
+}
+#erreur{
+
+    color: red;
+  }
+  #nav-link{
+    color:white ;
+    size: 120px;
+    }
+    

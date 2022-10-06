@@ -1,0 +1,55 @@
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:1px;">
+    <a href="#home" class="w3-bar-item w3-button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="26" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
+  <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
+</svg></a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small" *ngIf="test">
+      <a  class="w3-bar-item w3-button" routerLink="/admin/dashboard">Dashboard</a>
+      <a  class="w3-bar-item w3-button" routerLink="/dashboard/admin">Liste des Clients</a>
+      <a class="w3-bar-item w3-button" routerLink="/dashboard/admin/liste-categorie">Liste des categories</a>
+      <a class="w3-bar-item w3-button" routerLink="/dashboard/admin/list-test" >Liste des Tests</a>
+      <a class="w3-bar-item w3-button" routerLink="/dashboard/admin/test-details/{{ test.slug }}"  >Liste des Question</a>
+      <a href class="w3-bar-item w3-button" (click)="Deconnexion()">Deconnexion</a>   
+    </div>
+  </div>  
+</div>
+ <br> <br> <br> <br> <br> <br> 
+<div class="container">
+  <div class="card shadow mb-14" style="width: 930px; margin: auto;">
+    <div class="card-body ">
+      <div style="width: 700px; margin: auto;">
+        <div *ngIf="currentQuestion" class="edit-form">
+            <div class="form-group">
+              <h1>  Modifier Question/Reponse </h1> <br>
+                <div class="alert alert-success"  *ngIf="isSuccessful" >Question modifié</div>
+                <div class="alert alert-success"  *ngIf="isSuccessful1" >Reponse  modifié</div>
+                <label for="label"> <b> Question </b></label>
+                <input type="text" class="form-control" id="id" required  [(ngModel)]="currentQuestion.label" name="label" #label="ngModel"  />
+                <button class="btn btn-primary" style="margin:-60px 0px 9px 720px ; position: relative;"  (click)="ModifierQuestion(reponse.id)"> Modifier </button>
+                <div id="erreur" role="alert" *ngIf="label.errors " style="margin:-25px 0px 10px 0px ;" >
+                  <div *ngIf="label.errors.required">Question est obligatoire</div>
+                </div>
+            </div>
+            <div *ngFor="let reponse of currentQuestion['reponse_set']; let i = index">            
+                <input type="text" class="form-control"   required  [(ngModel)]="reponse.question" name="dure" hidden/> 
+                <label for="label"> <b> Reponse </b></label>
+                <input type="text" class="form-control"    [(ngModel)]="reponse.label" name="label1" #label1="ngModel" required/> 
+                <select name="cars" id="Niveau" name="Niveau" class="form-control" [(ngModel)]="reponse.est_correct">
+                    <option> true </option>
+                    <option>false</option>
+                </select>
+                <button class="btn btn-primary"  style="margin:-90px 0px 9px 720px; position: relative;" (click)="ModifierReponse(reponse.id,i)"> Modifier </button>
+                <div id="erreur" role="alert" *ngIf="label1.errors" style="margin:-10px 0px 10px 0px ;" >
+                  <div *ngIf="label1.errors.required">Reponse est obligatoire</div>
+                </div>
+            </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+              
+
+                                   

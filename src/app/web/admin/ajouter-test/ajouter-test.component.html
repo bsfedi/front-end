@@ -1,0 +1,114 @@
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:1px;">
+      <a href="#home" class="w3-bar-item w3-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="26" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
+        <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
+      </svg></a>
+      <div class="w3-right w3-hide-small">
+        <a  class="w3-bar-item w3-button" routerLink="/admin/dashboard">Dashboard</a>
+        <a  class="w3-bar-item w3-button" routerLink="/dashboard/admin">Liste des Clients</a>
+        <a class="w3-bar-item w3-button" routerLink="/dashboard/admin/liste-categorie">Liste des categories</a>
+        <a class="w3-bar-item w3-button" routerLink="/dashboard/admin/list-test" >Liste des Tests</a>
+        <a href class="w3-bar-item w3-button" (click)="Deconnexion()">Deconnexion</a>   
+      </div>
+  </div>  
+</div>
+<br> <br> <br> <br> <br> <br> 
+<div class="container">
+  <div class="card shadow mb-14" style="width: 900px; margin: auto;">
+    <div class="card-body ">
+      <div style="width: 700px; margin: auto;">
+        <div class="submit-form">
+          <form  name="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
+            <h1> Ajouter Test  </h1> <br>
+              <table class="table table-striped" >
+                <tr>
+                  <td>
+                    <div class="form-group">
+                      <label for="label"> <b> Titre </b> </label> 
+                      <input type="text" class="form-control" id="titre" required [(ngModel)]="test1.titre" name="titre" #titre="ngModel"/> 
+                      <div id="erreur" role="alert" *ngIf="titre.errors && f.submitted" >
+                        <div *ngIf="titre.errors.required">Titre est obligatoire</div> 
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-group">
+                      <label for="label"> <b> Dure </b> </label>  
+                        <input type="text" class="form-control" id="dure"  step="3600" required [(ngModel)]="test1.dure" name="dure" #dure="ngModel">
+                          <div id="erreur" role="alert" *ngIf="dure.errors && f.submitted" >
+                            <div *ngIf="dure.errors.required">Dure est obligatoire</div> 
+                          </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="form-group">
+                        <label for="label"> <b> Niveau </b> </label>
+                          <select name="cars" id="Niveau" name="Niveau" class="form-control" [(ngModel)]="test1.Niveau" #Niveau="ngModel" required>
+                            <option> Débutant </option>
+                            <option>intermédiaire</option>
+                            <option> Avancé</option>
+                          </select>
+                          <div id="erreur" role="alert" *ngIf="Niveau.errors && f.submitted" >
+                            <div *ngIf="Niveau.errors.required">Niveau est obligatoire</div> 
+                          </div> 
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-group"> 
+                        <label for="label"><b> Slug </b> </label>
+                          <input type="text" class="form-control" id="slug"  [(ngModel)]="test1.slug"  name="slug"  #slug="ngModel" required/>
+                            <div id="erreur" role="alert" *ngIf="slug.errors && f.submitted" >
+                              <div *ngIf="slug.errors.required">Slug est obligatoire</div> 
+                            </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="form-group"> 
+                        <label for="label"> <b> Etat </b> </label>
+                          <select name="cars" id="Niveau" name="Niveau" class="form-control" [(ngModel)]="test1.etat" #etat="ngModel" required>
+                          <option value="true">Caché</option>
+                          <option value="False">Affiché</option>
+                          </select>
+                            <div id="erreur" role="alert" *ngIf="etat.errors && f.submitted" >
+                              <div *ngIf="etat.errors.required">Etat est obligatoire</div> 
+                            </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-group">
+                      <label for="label"> <b> Categorie </b> </label>  
+                        <select name="cars"class="form-control" id="categorie"  required [(ngModel)]="test1.categorie" name="categorie" #categorie="ngModel" >
+                          <option [ngValue]="null" disabled></option>
+                          <option *ngFor="let categorie of categories;" [ngValue]="categorie.id">{{categorie.label}}</option>
+                        </select>
+
+
+                          <div id="erreur" role="alert" *ngIf="categorie.errors && f.submitted" >
+                            <div *ngIf="categorie.errors.required">Categorie est obligatoire</div> 
+                          </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+                <div class="form-group">
+                    <label for="label"> <b>description </b></label>
+                      <input type="text" class="form-control" id="description"  required [(ngModel)]="test1.description"  name="description"  #description="ngModel"/>
+                        <div id="erreur" role="alert" *ngIf="description.errors && f.submitted" >
+                          <div *ngIf="description.errors.required">Description est obligatoire</div> 
+                        </div> 
+                </div> <br>
+                <button id="btncenter"  class="btn btn-success">Ajouter</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

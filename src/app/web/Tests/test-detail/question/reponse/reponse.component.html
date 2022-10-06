@@ -1,0 +1,20 @@
+<!--<div class="reponse"  (click)="getidreponse(reponse.id)">
+    <div class="index" [class.index1]="isSelected()" style="margin:10px 0px 10px 0px "> {{rep}}</div>
+    <div style="font-size:20px;width:575px; margin:10px 0px 10px 10px ">{{reponse.label}}</div>
+</div>
+-->
+
+<div style="margin:30px 0px -210px -50px">
+            <div class="modal-body">
+                
+                <div class="quiz" id="quiz" data-toggle="buttons" (click)="getidreponse(reponse.id)">
+                 <label class="element-animation btn btn-lg btn-danger btn-block" [class.index1]="isSelected()" >
+                 <span class="btn-label">
+                 <i class="glyphicon glyphicon-chevron-right"></i> <span class="glyphicon glyphicon-chevron-right"></span></span> 
+
+                 <div style="font-size:20px;width:575px; margin:10px 0px 10px 0px;" name="q_answer"> {{reponse.label}} </div></label>
+               
+            </div>
+            </div>
+    </div>
+  

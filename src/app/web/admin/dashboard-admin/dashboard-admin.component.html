@@ -1,0 +1,125 @@
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:1px;">
+        <a href="#home" class="w3-bar-item w3-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="26" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
+            <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
+        </svg>
+        </a>
+        <div class="w3-right w3-hide-small">
+            <a  class="w3-bar-item w3-button" routerLink="/admin/dashboard">Dashboard</a>
+            <a  class="w3-bar-item w3-button" routerLink="/dashboard/admin">Liste des Clients</a>
+            <a class="w3-bar-item w3-button" routerLink="/dashboard/admin/liste-categorie">Liste des categories</a>
+            <a class="w3-bar-item w3-button" routerLink="/dashboard/admin/list-test" >Liste des Tests</a>
+            <a href  class="w3-bar-item w3-button" (click)="Deconnexion()">Deconnexion</a>   
+        </div>
+    </div>  
+</div><br> <br> <br> <br>
+<div class="container-sm">
+    <div class="row">
+
+        <div class="col-xl-3 col-md-4 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2 bg-primary text-white shadow">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text font-weight-bold text-white text-uppercase mb-1"><b>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="80"style="opacity: 0.5;" height="80"  fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                                </svg> </b>
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" style="margin:-75px 0px 0px 230px; font-size:35px;">{{nbTests}}</div> 
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" style="margin:0px 0px 0px 220px; opacity: 0.5;">Tests</div> 
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2 bg-danger text-white shadow">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="80" style="opacity: 0.5;" height="80" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                </svg>
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" style="margin:-35px 0px 0px 141px ; opacity: 0.5;"> Tests passés</div> 
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" style="margin:-60px 0px 0px 210px ; font-size:35px; ">{{nbtestspasses}} </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2  bg-success text-white shadow">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="80" style="opacity: 0.5;" height="80" fill="currentColor" class="bi bi-server" viewBox="0 0 16 16">
+                                    <path d="M1.333 2.667C1.333 1.194 4.318 0 8 0s6.667 1.194 6.667 2.667V4c0 1.473-2.985 2.667-6.667 2.667S1.333 5.473 1.333 4V2.667z"/>
+                                    <path d="M1.333 6.334v3C1.333 10.805 4.318 12 8 12s6.667-1.194 6.667-2.667V6.334a6.51 6.51 0 0 1-1.458.79C11.81 7.684 9.967 8 8 8c-1.966 0-3.809-.317-5.208-.876a6.508 6.508 0 0 1-1.458-.79z"/>
+                                    <path d="M14.667 11.668a6.51 6.51 0 0 1-1.458.789c-1.4.56-3.242.876-5.21.876-1.966 0-3.809-.316-5.208-.876a6.51 6.51 0 0 1-1.458-.79v1.666C1.333 14.806 4.318 16 8 16s6.667-1.194 6.667-2.667v-1.665z"/>
+                                </svg>
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" style="margin:-35px 0px 0px 210px ; opacity: 0.5;"> Data</div> 
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" style="margin:-60px 0px 0px 210px ; font-size:35px; ">{{nbtestspasses+nbtestspasses+nbUsers+nbTests}} </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2 card bg-info text-white shadow" >
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" style="opacity: 0.5;" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+                                    <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+                                </svg>
+                            </div>                                
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" style="margin:-35px 0px 0px 200px ; opacity: 0.5;"> Users</div> 
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" style="margin:-60px 0px 0px 210px ; font-size:35px; ">{{nbUsers}} </div>                                           
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>   
+<div class="container overflow-hidden">
+    <div class="row gy-5">
+        <div class="col-6">
+            <div class="p-3 border bg-light"><canvas id="myChart"></canvas></div>
+        </div>
+        <div class="col-6">
+            <div class="p-3 border bg-light"><canvas id="myChart2"></canvas></div>
+        </div>
+        <div class="col-6">
+            <div class="p-3 border bg-light"><canvas id="myChart3"></canvas></div>
+        </div>  
+                <div class="col-6">
+            <div class="p-3 border bg-light"><canvas id="myChart4"></canvas></div>
+        </div>  
+    </div>  
+</div><br><br><br><br>

@@ -1,0 +1,42 @@
+
+<br>
+
+        <div *ngIf="currentUser" class="edit-form" id="mdpcenter">
+          <form   name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate> 
+            <div class="alert alert-success" style="width:500px;" *ngIf="isSuccessful">{{ee}} </div>
+            <div  class="alert alert-danger"  style="width:500px;" *ngIf="isSuccessful1 "> {{ee}} </div>
+            <div  class="alert alert-danger"  style="width:500px;" *ngIf="isSuccessful2"> Confirmer votre mot de passe</div>
+            <div class="form-group row">
+
+              <label for="inputPassword" class="col-sm-4 col-form-label">Mot de passe actuel</label>
+              <div class="col-sm-4">
+                <input type="password" class="form-control" name="password" id="password"  [(ngModel)]="form.password" value="currentUser.user.password" placeholder="Password"  minlength="6" #password="ngModel" required>
+                <div id="erreur" role="alert" *ngIf="password.errors && f.submitted" >
+                  <div *ngIf="password.errors.required">Mot de passe est obligatoire</div>
+                </div>
+              </div>
+            </div><br>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-4 col-form-label">Nouveau mot de passe </label>
+              <div class="col-sm-4">
+                <input type="password" class="form-control" name="new_password" id="new_password" [(ngModel)]="form.new_password"  minlength="6"  placeholder="Nouveau mot de passe" #new_password="ngModel" required>
+                <div id="erreur" role="alert" *ngIf="new_password.errors && f.submitted" >
+                  <div *ngIf="new_password.errors.required">Mot de passe est obligatoire</div>
+                  <div *ngIf="new_password.errors.minlength"> Mot de passe doit être au moins 6 caractères </div>
+                </div>
+              </div>
+            </div><br>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-4 col-form-label">Confirmer mot de passe</label>
+              <div class="col-sm-4">
+                <input type="password" class="form-control"  name="cnew_password" id="cnew_password" placeholder="Confirmer mot de passe"  [(ngModel)]="form.cnew_password" required #cnew_password="ngModel"  minlength="6" >
+                <!--
+                <div id="erreur" role="alert" *ngIf="cnew_password.errors.required && f.submitted"> Mot de passe est obligatoire!</div>
+                <div id="erreur" role="alert" *ngIf="password">  Mot de passe doit être au moins 6 caractères </div>
+                -->  
+              </div>  
+            </div> <br>
+            <button type="submit" class="btn btn-primary" id="btncenter" >Enregistrer</button>
+          </form>
+        </div>  
+

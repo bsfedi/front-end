@@ -1,0 +1,92 @@
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:1px;">
+    <a href="#home" class="w3-bar-item w3-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="26" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
+        <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
+      </svg></a>
+            <!-- Right-sided navbar links. Hide them on small screens -->
+      <div class="w3-right w3-hide-small">
+        <a  class="w3-bar-item w3-button" routerLink="/admin/dashboard">Dashboard</a>
+        <a  class="w3-bar-item w3-button" routerLink="/dashboard/admin">Liste des Clients</a>
+        <a class="w3-bar-item w3-button" routerLink="/dashboard/admin/liste-categorie">Liste des categories</a>
+        <a class="w3-bar-item w3-button" routerLink="/dashboard/admin/list-test" >Liste des Tests</a>
+        <a href class="w3-bar-item w3-button" (click)="Deconnexion()">Deconnexion</a>   
+      </div>
+  </div>  
+</div>
+  <br> <br> <br> <br> <br> <br> 
+<div class="container-xl">
+  <div id="wrapper" style="margin:0px 100px 0px 100px;">
+    <div id="content-wrapper" class="d-flex flex-column">
+      <div id="content">
+        <div class="container-fluid">
+          <div class="card shadow mb-14">
+              <div class="card-header py-3">
+                <h2 class="m-0 font-weight-bold text-primary">Ajouter Question </h2>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <div class="alert alert-success"  *ngIf="isSuccessful" >
+                    Question ajouté                           
+                  </div>
+                  <div class="form-group">
+                    <label for="label">Question ?</label>
+                    <input type="text" class="form-control" id="label" required [(ngModel)]="Question.label"  name="label" #label="ngModel" />
+                      <div id="erreur"> {{errorr}} </div>
+                  </div> <br>
+                  <table class="table table-striped">
+                    <tr>
+                      <td>
+                        <div class="form-group">
+                            <label for="label"> <b> Reponse </b></label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group">
+                          <label for="label"> <b> Correcte ? </b></label>
+                        </div>
+                      <td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <input type="text"   class="form-control" id="label" required  [(ngModel)]="Reponse1.label" name="label0"  minlength="6" #label0="ngModel" required/>
+                      </td>
+                      <td>
+                          <input type="checkbox" class="form-checkbox" id="checkbox" value="True" name="interest" [(ngModel)]="Reponse1.est_correct" >
+                      </td>
+                    </tr> <br>
+                    <tr>
+                      <td>
+                        <input type="text" class="form-control" id="label1" required  [(ngModel)]="Reponse2.label" name="label1"  minlength="6" #label1="ngModel" required/>
+                      </td>
+                      <td>   
+                        <input type="checkbox" class="form-checkbox" id="1" value="1" required  name="interest" [(ngModel)]="Reponse2.est_correct" >
+                      </td>
+                    </tr><br>
+                    <tr>
+                      <td>
+                        <input type="text" class="form-control" id="label2" required  [(ngModel)]="Reponse3.label"  name="label2" #label2="ngModel" />
+                      </td>
+                      <td>
+                        <input type="checkbox" class="form-checkbox" id="1" value="1" required  name="interest" [(ngModel)]="Reponse3.est_correct" >
+                      </td>
+                    </tr><br>
+                    <tr>
+                      <td>
+                        <input type="text" class="form-control" id="label4" required  [(ngModel)]="Reponse4.label" name="label4" #label4="ngModel"/>
+                      </td>
+                      <td>
+                        <input type="checkbox" class="form-checkbox" id="1" value="1" required  name="interest"[(ngModel)]="Reponse4.est_correct" >
+                      </td>
+                    </tr>          
+                  </table> <br><br>
+                  <button   class="btn btn-primary" (click)="Ajouter()" style="margin-left:100px">Ajouter et quittez </button>
+                  <button   class="btn btn-primary" (click)="ajuterplus()" style="margin-left:480px">Ajouter plus </button><br>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </div> 
+    </div> 
+  </div> 
+</div>

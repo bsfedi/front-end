@@ -1,0 +1,24 @@
+<div class= "container-xx" >
+  <div  class="myDiv" >
+
+  
+   </div>
+</div>   
+
+<div class="d-flex flex-nowrap">
+  <div class="order-xl-12 p-2 myDiv2">
+  <form  name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"  novalidate  >
+      <div class="form-group"> <br>
+            <label for="email"><b> Adresse e-mail : </b></label> <br> <br>
+            <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email #email="ngModel" />
+                    <div id="erreur" *ngIf="email.errors && f.submitted">
+                <div *ngIf="email.errors.required">Email est obligatoire</div>
+                <div *ngIf="email.errors.email">verifier votre adresse e-email </div>
+              </div>
+      </div><br>
+                    <div class="form-group" >
+                    <div id="center"> <button class="btn btn-primary btn-block" (click)="onSubmit()" > RÉINITIALISER </button> </div>
+              <br>  <div id="center" > <a routerLink="/auth/login"> Vous avez déjà un compte?</a> </div></div> <br>
+
+</form></div>
+</div>

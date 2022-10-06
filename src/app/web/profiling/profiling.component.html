@@ -1,0 +1,179 @@
+<html>
+<head>
+<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css'>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+</head>
+
+<body id="page-top">
+
+
+<div class="container">
+  <div class="card shadow mb-14" style="width: 900px; margin: auto;">
+    <div class="card-body ">
+      <div style="width: 700px; margin: auto;">
+        <div class="submit-form">
+          <form  name="form" #f="ngForm" novalidate>
+            <h1>Profiling </h1> <br>
+
+                <tr>
+                  <td>
+                    <div class="form-group">
+                      <label for="label"> <b> Categorie ? </b> </label> 
+                        <select name="cars" class="form-control" id="categorie" required [(ngModel)]="profilee.categorie" name="categorie" #categorie="ngModel">
+                            <option value="0"> Développement </option>
+                            <option value="1">Réseau</option>
+                          </select>
+                    </div><br>
+
+                    <div class="form-group" style="width:500px;">
+                        <label for="label"> <b> Niveau ? </b> </label>
+                          <select name="cars" id="niveau" name="niveau" class="form-control" [(ngModel)]="profilee.niveau" #niveau="ngModel" required>
+                            <option value="0"> Débutant </option>
+                            <option value="1">intermédiaire</option>
+                            <option value="2"> Avancé</option>
+                          </select>
+                    </div> <br>
+
+                    <div class="form-group"> 
+                        <label for="label"><b> Intéressé par les certificats  ? </b> </label>
+                          <select  class="form-control" id="certification"  [(ngModel)]="profilee.certification"  name="certification"  #certification="ngModel" required>
+                            <option value="0"> Oui </option>
+                            <option value="1">Non</option>
+
+                          </select>
+                    </div> <br>
+
+                <div class="form-group-3">
+                    <label for="label"> <b>Question4 </b></label>
+
+                          <select  class="form-control" id="question4"  required [(ngModel)]="profilee.question4"  name="question4"  #question4="ngModel">
+                            <option value="0"> Oui </option>
+                            <option value="1">Non</option>
+
+                          </select>              
+                </div> <br>
+                <button id="btncenter"  class="btn btn-success" (click)="Profiling()">Verifier</button>
+          </form>
+          
+        <br> <br><br> <br> <br><br> <br> <br><br>
+        
+        <div id="portfolio" *ngIf="aa">
+          <div *ngFor="let test of eee" >
+ <div class="card shadow mb-5  pulse test" style="width:900px;margin-left:420px;padding-bottom:40px;border-radius: 25px;" *ngIf="!test.etat"  > 
+ <div style="font-size: 35px ; margin:15px 0px 0px 15px "> {{test.titre}} test Niveau {{test.Niveau}}  </div>
+ <br>
+<div style="width:450px;font-size: 20px ;margin-left:5px">{{test.description}}</div>
+<div  style="margin:40px 0px 0px 250px" >
+ <img src="/assets/quiz.png" width="55"> <div style="margin:-35px 0px -8px 50px" >{{test.questions_count}} Question </div> </div>
+ <div  style="margin:-40px 0px 0px 10px" >
+  <img src="/assets/time.png" width="65"> <div style="margin:-40px 0px 0px 60px" > {{test.dure}} Minutes  </div> </div>
+   <div class="col l9 m4 margin-bottom">
+   <a [routerLink]="['/tests', test.slug]">
+  <button class="btn btn-primary btn-xl js-scroll-trigger" style="margin:40px 0px 0px 0px "  >Passer le test</button> </a> </div>
+ </div>   </div>  <br>
+
+            <div class="container-fluid p-0" style="width:800px">
+                <div class="row">
+                    <div class="col l m8 margin-bottom"  style="margin:-120px 0px 100px 10px; " >
+                        <div>
+                            <img src="/assets/45.png"  style="margin:30px 0px 0px 20px; ">
+                            <img src="/assets/12.png" width="150" style="margin:0px 0px 0px 20px; ">
+                            <div style="margin:-120px 0px 0px 280px;font-size:20px"> <b>Tests </b> </div>
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50"></div>
+                                <div class="project-name"></div>
+                            </div>
+                        </div> 
+                     </div>  
+                    </div>
+                </div> 
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><br><br><br><br><!-- 
+<h1>Django REST API with Angular 10 Image Upload Example</h1>
+<div>
+  <div *ngIf="response && imageURL">
+    <img [src]='imageURL' />
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="updatee()">
+
+    <input type="file" name="profile" (change)="onChange($event)" />
+    <button type="submit">Upload Image File</button>
+
+  </form>
+</div>
+<div *ngFor="let ee of imagesss ">
+  {{ee.id}}  <img src="{{ee.file}}" width="5%"> 
+
+</div>-->
+               <div style="width:250px ;background-color:white;"> <img src="/assets/chatbot.jpg"  id="myBtn" style=" border-radius: 50%;margin:30px 0px 0px 60px; " width="50%">
+                </div>
+<div class="container">
+  <div class="card shadow mb-14" style="width: 900px; margin: auto;">
+    <div class="card-body ">
+      <div style="width: 700px; margin: auto;">
+        <div class="submit-form">
+          <form  name="form"  #f="ngForm" novalidate>
+            <h1> Ajouter Test  </h1> <br>
+                <div class="form-group">
+
+              <!--   <div *ngFor="let aa of ee;">
+ <div *ngFor="let aa1 of ee1;">
+                 <div style="background-color:red">  Me: {{aa.msg}} </div>
+                                           
+
+                 <div style="background-color:yellow">  Bot: {{aa1.msg1}} </div>
+                            
+                  
+                </div>
+                  
+                </div>-->
+
+                 <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+                <div *ngFor="let aa of ee;">
+
+                  Me: 
+                  <div style="border-radius: 25px;background: #73AD21;padding: 20px; width: 300px;height: auto; font-size:20px;">  
+                    <div style="display: inline-block;"> <b > {{aa.msg}} 
+                    </b> </div>
+                  </div>
+                  
+    <div style="margin-left:1000px;" *ngFor="let aa1 of ee1;" >        
+    Bot:   
+      <div style="border-radius: 25px;background: #73AD21;padding: 20px; font-size:20px;height: auto;margin:10px 0px 10px 0px;"> 
+        <div style="display: inline-block;"><b>  {{aa1.msg1}} </b></div>
+      </div> 
+  </div> 
+                                                  
+                </div>
+                  
+
+              <label for="label"> <b>Message </b></label>
+                      <input type="text" class="form-control" id="message"  required [(ngModel)]="chatbotlist.message"  name="message"  #message="ngModel" style="width:400px;"/>
+<button id="btncenter"  class="btn btn-success" (click)="chatbot()" style="width:100px;">Envoyer</button>
+  </div>
+
+</div>              
+                    <label for="label"> <b>description </b></label>
+                      <input type="text" class="form-control" id="message"  required [(ngModel)]="chatbotlist.message"  name="message"  #message="ngModel"/>
+
+                </div> <br>
+                <button id="btncenter"  class="btn btn-success" (click)="chatbot()">Ajouter</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

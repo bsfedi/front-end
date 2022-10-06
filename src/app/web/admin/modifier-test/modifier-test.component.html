@@ -1,0 +1,91 @@
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:1px;">
+    <a href="#home" class="w3-bar-item w3-button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="26" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
+  <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
+</svg></a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+    <a  class="w3-bar-item w3-button" routerLink="/admin/dashboard">Dashboard</a>
+      <a  class="w3-bar-item w3-button" routerLink="/dashboard/admin">Liste des Clients</a>
+      <a class="w3-bar-item w3-button" routerLink="/dashboard/admin/liste-categorie">Liste des categories</a>
+      <a class="w3-bar-item w3-button" routerLink="/dashboard/admin/list-test" >Liste des Tests</a>
+      <a href class="w3-bar-item w3-button" (click)="Deconnexion()">Deconnexion</a>   
+    </div>
+  </div>  
+</div>
+ <br> <br> <br> <br> <br> <br> 
+
+<div class="container">
+  <div class="card shadow mb-14" style="width: 900px; margin: auto;">
+    <div class="card-body ">
+      <div style="width: 700px; margin: auto;">
+        <div *ngIf="currentTest" class="edit-form">
+          <h1> Modifier Test </h1>
+            <div class="alert alert-success"  *ngIf="isSuccessful" >{{ message }}</div>
+            <table class="table table-striped" >
+              <tr>
+                <td>      
+                  <div class="form-group">
+                      <label for="label">Titre</label>
+                      <input type="text"  class="form-control" id="titre" required [(ngModel)]="currentTest.titre" name="titre"  />
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group">
+                    <label for="label">Categorie</label>  
+
+                          <select  name="cars" id="categorie" class="form-control"  required [(ngModel)]="currentTest.categorie" name="categorie">
+                          <option [ngValue]="null" disabled></option>
+                          <option *ngFor="let categorie of categories;" [ngValue]="categorie.id">{{categorie.label}}</option>
+                        </select>
+                  </div>
+                </td>
+              </tr>
+              <tr> 
+                <td>
+                  <div class="form-group">
+                      <label for="label">Niveau</label>
+                      <select name="cars" id="Niveau" name="Niveau" class="form-control" [(ngModel)]="currentTest.Niveau">
+                          <option> Débutant </option>
+                          <option>intermédiaire</option>
+                          <option> Avancé</option>
+                      </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group">
+                      <label for="label">Slug</label>
+                      <input  type="text" class="form-control" id="slug"  required [(ngModel)]="currentTest.slug" name="slug" />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <div class="form-group">
+                        <label for="label">Etat</label>
+                        <select name="cars" id="etat" name="etat" class="form-control" [(ngModel)]="currentTest.etat">
+                          <option value="true">Caché</option>
+                          <option value="False">Affiché</option>
+                        </select>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                      <label for="label">Dure</label>
+                      <input type="text" class="form-control"  min="00:10" max="00:59" id="dure" required  [(ngModel)]="currentTest.dure" name="dure"/>
+                    </div>
+                </td> 
+              </tr>
+            </table>      
+            <div class="form-group" id="desc">
+              <label for="label">Description</label> 
+              <input type="text" class="form-control"  id="description" required [(ngModel)]="currentTest.description" name="description"  />  
+            </div> 
+            <br>
+            <button (click)="ModifierTest()" id="btncenter" class="btn btn-success">Modifier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
